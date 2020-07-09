@@ -1,0 +1,21 @@
+{
+  "name": "Geecko-NodeJS-BaseAPI",
+  "version": "1.0.0",
+  "description": "NodeJS boilerplate maded by Geecko",
+  "main": "index.js",
+  "repository": "https://github.com/jeffersonest/Geecko-NodeJS-BaseAPI.git",
+  "author": "Jefferson Estevam <jesbmail@gmail.com>",
+  "license": "MIT",
+  "scripts" : {
+    "start": "node index.js",
+    "dev" : "nodemon index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "node-cmd": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
