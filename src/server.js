@@ -1,16 +1,21 @@
+const Env = require('dotenv').config();
 const express = require('express');
 const Logger = require('./helpers/logger');
 const routes = require('./routes');
+const morgan = require('morgan');
 
 class BaseServer {
     App = express();
+    Port = process.env.PORT;
     constructor(){
+        this.initMiddlewares();
         this.initRoutes();
     }
-    start(port) {
-        this.App.listen(port || 3000, () => {
-            Logger.info(`Server listening on [${port}]`);
-        });
+    start() {
+        this.App.listen(this.Port, () => console.log(`App listening on PORT: ${this.Port}`))
+    }
+    initMiddlewares() {
+        this.App.use(morgan('[Method::method] [Url::url] [Header::req[header]] [Status::status] [Size::res[content-length]] - :response-time ms'))
     }
     initRoutes() {
         this.App.use(routes);

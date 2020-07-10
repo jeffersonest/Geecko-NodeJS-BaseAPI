@@ -6,13 +6,15 @@
   "repository": "https://github.com/jeffersonest/Geecko-NodeJS-BaseAPI.git",
   "author": "Jefferson Estevam <jesbmail@gmail.com>",
   "license": "MIT",
-  "scripts" : {
+  "scripts": {
     "start": "node index.js",
-    "dev" : "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "node-cmd": "^3.0.0"
   },
   "devDependencies": {
