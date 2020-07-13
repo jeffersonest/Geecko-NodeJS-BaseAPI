@@ -1,7 +1,7 @@
 const express = require('express');
-const defaultRoutes = require('./default');
+const defaultRoutes = require('./defaultRoutes');
 const authMiddleware = require('../middlewares/authMiddleware');
-const userRoutes = require('./user');
+const userRoutes = require('./userRoutes');
 const routes = express.Router();
 
 routes.get('/', (req, res, next)=> {

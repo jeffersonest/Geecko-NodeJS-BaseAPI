@@ -4,6 +4,7 @@ const Logger = require('./helpers/Logger');
 const bodyParser = require('body-parser')
 const routes = require('./routes');
 const morgan = require('morgan');
+const { Inspect } = require('./middlewares/ErrorHandler');
 
 class BaseServer {
     App = express();
@@ -11,6 +12,7 @@ class BaseServer {
     constructor(){
         this.initMiddlewares();
         this.initRoutes();
+        this.errorHandler();
     }
     start() {
         this.App.listen(this.Port, () => console.log(`App listening on PORT: ${this.Port}`))
@@ -21,6 +23,9 @@ class BaseServer {
     }
     initRoutes() {
         this.App.use('/api', routes);
+    }
+    errorHandler() {
+        this.App.use(Inspect);
     }
 }
 
