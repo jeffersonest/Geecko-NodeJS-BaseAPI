@@ -20,7 +20,7 @@ class BaseServer {
         this.App.use(morgan('[Method::method] [Url::url] [Header::req[header]] [Status::status] [Size::res[content-length]] - :response-time ms'))
     }
     initRoutes() {
-        this.App.use(routes);
+        this.App.use('/api', routes);
     }
 }
 
