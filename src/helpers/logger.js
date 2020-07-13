@@ -1,12 +1,13 @@
 const chalk = require('chalk');
 const log = console.log;
+const error = console.error;
 
 class Logger {
     info(message){
         log(chalk.yellow(message));
     }
     error(message) {
-        log(chalk.red(message));
+        error(chalk.red(message));
     }
 }
 

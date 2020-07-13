@@ -4,7 +4,7 @@
     ],
     "ext": "js",
     "execMap": {
-      "js": "node --inspect=0.0.0.0:9229"
+      "js": "node --inspect=0.0.0.0:4002"
     }
   }
   

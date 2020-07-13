@@ -10,7 +10,8 @@
         "request": "attach",
         "protocol": "inspector",
         "restart": true,
-        "skipFiles": ["<node_internals>/**"]
+        "skipFiles": ["<node_internals>/**"],
+        "port" : 4002
       }
     ]
   }
