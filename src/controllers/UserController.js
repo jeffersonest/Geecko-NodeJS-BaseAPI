@@ -6,12 +6,10 @@ const { Status } = require('../helpers/StatusCode');
 class UserController {
 
     async auth(req, res, next) {
-
         try {
+
             const {email} = req.body
-
             const user = await UserModel.findOne({ email }).exec();
-
             const {password, ...userData} = user._doc;
 
             if (!user || !Bcrypt.compareSync(req.body.password, user.password)) {
@@ -19,12 +17,11 @@ class UserController {
             }
 
             let data = Status[0];
-
             data.user = userData;
-
             data.token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET);
 
             res.status(200).json(data);
+
         } catch (error) {
             console.log(error)
             res.status(500).send(error);
@@ -34,8 +31,7 @@ class UserController {
     async create(req, res, next) {
         try {
 
-            const {email} = req.body
-
+            const {email} = req.body;
             var user = await UserModel.findOne({ email }).exec();
 
             if (user) {
@@ -44,10 +40,10 @@ class UserController {
             }
 
             const userData = await UserModel.create(req.body);
-            
             const {password, ...data} = userData._doc;
 
             return res.status(200).json(data);
+
         } catch (error) {
             return res.status(500).json({error: error.message});
         }

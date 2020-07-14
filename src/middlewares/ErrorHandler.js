@@ -8,9 +8,7 @@ exports.Inspect = (err, req, res, next) => {
                 data.body = err.details.body;
                 return res.status(200).json(data);
         default:
-            return res.status(500).json(err.message);
+            return res.status(500).json(err);
 
     }
-
-    return res.status(500).json(err);
 }
