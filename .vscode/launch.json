@@ -11,7 +11,7 @@
         "protocol": "inspector",
         "restart": true,
         "skipFiles": ["<node_internals>/**"],
-        "port" : 4002
+        "port" : 9000
       }
     ]
   }

@@ -20,6 +20,7 @@
     "express-validator": "^6.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.23",
+    "mongoose-paranoid-plugin": "^1.1.2",
     "morgan": "^1.10.0",
     "node-cmd": "^3.0.0"
   },

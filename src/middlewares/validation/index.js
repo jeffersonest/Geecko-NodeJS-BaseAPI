@@ -12,13 +12,25 @@ exports.loginValidation = {
 
   exports.registerValidation = {
     body: Joi.object({
-      email: Joi.string()
-        .email()
-        .required(),
-      password: Joi.string()
-        .required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
       name: Joi.string().required(),
-      profile_pic: Joi.string()
-      .optional()
+      profile_pic: Joi.string().optional()
+    }),
+  }
+
+  exports.registerProductsValidation = {
+    body: Joi.object({
+      name: Joi.string().required(),
+      canteen_value: Joi.number().required(),
+      store_value: Joi.string().required(),
+      thumb: Joi.string().optional()
+    }),
+  }
+
+  exports.registerPurchaseValidation = {
+    body: Joi.object({
+      user_id: Joi.string(),
+      products: Joi.array(),
     }),
   }

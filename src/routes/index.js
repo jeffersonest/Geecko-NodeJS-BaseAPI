@@ -2,6 +2,7 @@ const express = require('express');
 const defaultRoutes = require('./defaultRoutes');
 const authMiddleware = require('../middlewares/authMiddleware');
 const userRoutes = require('./userRoutes');
+const purchaseRoutes = require('./purchaseRoutes');
 const routes = express.Router();
 
 routes.get('/', (req, res, next)=> {
@@ -10,5 +11,6 @@ routes.get('/', (req, res, next)=> {
 
 routes.use('/default', authMiddleware.jwtValidation, defaultRoutes);
 routes.use('/user', userRoutes);
+routes.use('/purchase', purchaseRoutes);
 
 module.exports = routes;
