@@ -31,15 +31,23 @@ class PurchaseController {
             }
 
         } catch (error) {
-            console.log(error);
+            let data = Status[5];
+            data.error = error.message;
+            res.status(200).json(data); 
         }
     }
 
     async list(req, res) {
-        const purchases = await PurchaseModel.find();
-        let data = Status[0];
-        data.purchases = purchases;
-        return res.status(200).json(data);
+        try {
+            const purchases = await PurchaseModel.find();
+            let data = Status[0];
+            data.purchases = purchases;
+            return res.status(200).json(data);
+        } catch (error) {
+            let data = Status[5];
+            data.error = error.message;
+            res.status(200).json(data); 
+        }
     }
 
     async update(req, res) {
