@@ -3,6 +3,8 @@ const { ProductsSchema } = require('./Products');
 const Schema = mongoose.Schema;
 
 const PurchaseSchema = new Schema({
+    user_id: String,
+    user_name: String,
     products: [ProductsSchema],
     value: Number
 },{ 

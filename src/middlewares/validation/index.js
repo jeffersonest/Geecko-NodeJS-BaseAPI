@@ -28,9 +28,22 @@ exports.loginValidation = {
     }),
   }
 
-  exports.registerPurchaseValidation = {
+  exports.createPurchaseValidation = {
     body: Joi.object({
       user_id: Joi.string(),
       products: Joi.array(),
+    }),
+  }
+
+  exports.updatePurchaseValidation = {
+    body: Joi.object({
+      purchase_id: Joi.string(),
+      products: Joi.array()
+    }),
+  }
+
+  exports.deletePurchaseValidation = {
+    body: Joi.object({
+      purchase_id: Joi.string()
     }),
   }
