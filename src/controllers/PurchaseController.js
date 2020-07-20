@@ -55,10 +55,17 @@ class PurchaseController {
             const { purchase_id, products } = req.body;
 
             const purchase = await PurchaseModel.findById(purchase_id);
-    
+
             purchase.products = products;
     
             await purchase.save();
+
+            const user =  await UserModel.findOneAndUpdate(
+                {  _id: purchase.user_id, "purchases._id": purchase_id },
+                { $set: { "purchases.0.products": products } } //push//pull
+            );
+
+            console.log(user)    
     
             res.status(200).json(Status[0]);    
         } catch (error) {
