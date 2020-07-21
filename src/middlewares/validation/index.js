@@ -47,3 +47,13 @@ exports.loginValidation = {
       purchase_id: Joi.string()
     }),
   }
+
+  exports.createProductValidation = {
+    body: Joi.object({
+      name: Joi.string(),
+      store_value: Joi.number(),
+      canteen_value: Joi.number(),
+      amount: Joi.number().optional(),
+      thumb: Joi.string().optional()
+    })
+  }
